@@ -1,9 +1,17 @@
 package com.example.ultimaaula.model;
 
-public class Produto {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+public class Produto extends AbstractEntity {
+  @Column
   private String nome;
+  @Column
   private String descricao;
+  @Column
   private int codigo;
+  @Column
   private double valor;
 
   public Produto(String nome, String descricao, int codigo, double valor) {

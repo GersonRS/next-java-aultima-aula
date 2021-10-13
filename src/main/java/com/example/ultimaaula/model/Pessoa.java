@@ -1,8 +1,14 @@
 package com.example.ultimaaula.model;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
-public abstract class Pessoa {
+@MappedSuperclass
+public class Pessoa extends AbstractEntity{
+
+  @Column(length = 50, nullable = false)
   protected String nome;
+  @Column
   protected String sobrenome;
 
   public Pessoa(String nome, String sobrenome) {

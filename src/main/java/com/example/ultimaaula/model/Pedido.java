@@ -2,19 +2,32 @@ package com.example.ultimaaula.model;
 
 import java.util.Date;
 
-public class Pedido {
-  private Date data;
-  private int quantidade;
-  private double valor;
-  private Cliente varCliente;
-  private Produto varProduto;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-  public Pedido(Date data, int quantidade, double valor, Cliente varCliente, Produto varProduto) {
+@Entity
+public class Pedido extends AbstractEntity{
+  @Column
+  private Date data;
+  @Column
+  private int quantidade;
+  @Column
+  private double valor;
+  @OneToOne
+  @JoinColumn(name = "cliente_id")
+  private Cliente cliente;
+  @OneToOne
+  @JoinColumn(name = "produto_id")
+  private Produto produto;
+
+  public Pedido(Date data, int quantidade, double valor, Cliente cliente, Produto produto) {
     this.data = data;
     this.quantidade = quantidade;
     this.valor = valor;
-    this.varCliente = varCliente;
-    this.varProduto = varProduto;
+    this.cliente = cliente;
+    this.produto = produto;
   }
 
   public Date getData() {
@@ -41,20 +54,21 @@ public class Pedido {
     this.valor = valor;
   }
 
-  public Cliente getVarCliente() {
-    return varCliente;
+  public Cliente getcliente() {
+    return cliente;
   }
 
-  public void setVarCliente(Cliente varCliente) {
-    this.varCliente = varCliente;
+  public void setcliente(Cliente cliente) {
+    this.cliente = cliente;
   }
 
-  public Produto getVarProduto() {
-    return varProduto;
+  public Produto getproduto() {
+    return produto;
   }
 
-  public void setVarProduto(Produto varProduto) {
-    this.varProduto = varProduto;
+  public void setproduto(Produto produto) {
+    this.produto = produto;
   }
 
 }
+
