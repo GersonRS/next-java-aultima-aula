@@ -14,6 +14,8 @@ public class Endereco extends AbstractEntity {
   @Column
   private String estado;
 
+  public Endereco(){}
+
   public Endereco(String rua, int numero, String cidade, String estado) {
     this.rua = rua;
     this.numero = numero;

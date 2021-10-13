@@ -8,11 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class AbstractEntity implements Serializable{
-  
+public class AbstractEntity implements Serializable {
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
+
+  public AbstractEntity() {
+  }
 
   public Long getId() {
     return id;

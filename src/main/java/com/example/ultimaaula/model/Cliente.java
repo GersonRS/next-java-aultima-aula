@@ -11,6 +11,9 @@ public class Cliente extends Pessoa {
   @JoinColumn(name = "endereco_id")
   private Endereco endereco;
 
+  public Cliente() {
+  }
+
   public Cliente(String nome, String sobrenome, Endereco endereco) {
     super(nome, sobrenome);
     this.endereco = endereco;
@@ -22,6 +25,11 @@ public class Cliente extends Pessoa {
 
   public void setEndereco(Endereco endereco) {
     this.endereco = endereco;
+  }
+
+  @Override
+  public String toString() {
+    return "Meu nome é:" + nome + " e moro em: " + endereco.getRua();
   }
   
 }
